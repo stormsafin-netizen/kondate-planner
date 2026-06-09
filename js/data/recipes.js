@@ -1,0 +1,451 @@
+// レシピ集。各レシピは材料(価格・カテゴリ)と栄養(1人前)を持つ。
+// price = pricePerUnit * qty（円）。栄養は nutritionPerServing（baseServings 人前あたり）。
+// genre: 和食/洋食/中華  mealSlots: breakfast/lunch/dinner  tags: meat/fish/veggie/egg
+
+export const RECIPES = [
+  // ---------------- 朝食（軽め） ----------------
+  {
+    id: "gohan_miso_tamago", name: "ごはん・味噌汁・卵焼き", genre: "和食",
+    mealSlots: ["breakfast"], tags: ["egg", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "卵", qty: 3, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "豆腐", qty: 0.5, unit: "丁", pricePerUnit: 60, category: "野菜" },
+      { name: "わかめ", qty: 5, unit: "g", pricePerUnit: 2, category: "調味料" },
+      { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 380, protein: 14, fat: 10, carb: 55 },
+  },
+  {
+    id: "toast_egg", name: "トースト・目玉焼き・サラダ", genre: "洋食",
+    mealSlots: ["breakfast"], tags: ["egg", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "食パン", qty: 4, unit: "枚", pricePerUnit: 20, category: "米・パン" },
+      { name: "卵", qty: 2, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "レタス", qty: 0.3, unit: "玉", pricePerUnit: 150, category: "野菜" },
+      { name: "トマト", qty: 1, unit: "個", pricePerUnit: 80, category: "野菜" },
+      { name: "バター", qty: 20, unit: "g", pricePerUnit: 2, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 350, protein: 12, fat: 16, carb: 40 },
+  },
+  {
+    id: "natto_gohan", name: "納豆ごはん・味噌汁", genre: "和食",
+    mealSlots: ["breakfast"], tags: ["veggie"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "納豆", qty: 2, unit: "パック", pricePerUnit: 35, category: "野菜" },
+      { name: "豆腐", qty: 0.5, unit: "丁", pricePerUnit: 60, category: "野菜" },
+      { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 360, protein: 16, fat: 8, carb: 56 },
+  },
+  {
+    id: "onigiri", name: "おにぎり・味噌汁", genre: "和食",
+    mealSlots: ["breakfast", "lunch"], tags: ["veggie"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1.2, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "鮭フレーク", qty: 40, unit: "g", pricePerUnit: 3, category: "肉魚" },
+      { name: "のり", qty: 2, unit: "枚", pricePerUnit: 15, category: "調味料" },
+      { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 340, protein: 10, fat: 5, carb: 62 },
+  },
+  {
+    id: "pancake", name: "パンケーキ・フルーツ", genre: "洋食",
+    mealSlots: ["breakfast"], tags: ["egg"], baseServings: 2,
+    ingredients: [
+      { name: "ホットケーキミックス", qty: 150, unit: "g", pricePerUnit: 0.6, category: "米・パン" },
+      { name: "卵", qty: 1, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "牛乳", qty: 100, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
+      { name: "バナナ", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 400, protein: 9, fat: 10, carb: 68 },
+  },
+  {
+    id: "french_toast", name: "フレンチトースト", genre: "洋食",
+    mealSlots: ["breakfast"], tags: ["egg"], baseServings: 2,
+    ingredients: [
+      { name: "食パン", qty: 4, unit: "枚", pricePerUnit: 20, category: "米・パン" },
+      { name: "卵", qty: 2, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "牛乳", qty: 150, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
+      { name: "砂糖", qty: 20, unit: "g", pricePerUnit: 0.3, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 380, protein: 13, fat: 12, carb: 52 },
+  },
+  {
+    id: "cereal", name: "シリアル・ヨーグルト", genre: "洋食",
+    mealSlots: ["breakfast"], tags: ["veggie"], baseServings: 2,
+    ingredients: [
+      { name: "シリアル", qty: 120, unit: "g", pricePerUnit: 1.2, category: "米・パン" },
+      { name: "牛乳", qty: 300, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
+      { name: "ヨーグルト", qty: 200, unit: "g", pricePerUnit: 0.8, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 320, protein: 11, fat: 7, carb: 54 },
+  },
+  {
+    id: "wafu_teishoku", name: "焼き鮭朝定食", genre: "和食",
+    mealSlots: ["breakfast"], tags: ["fish"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "鮭切り身", qty: 2, unit: "切れ", pricePerUnit: 120, category: "肉魚" },
+      { name: "豆腐", qty: 0.5, unit: "丁", pricePerUnit: 60, category: "野菜" },
+      { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 420, protein: 24, fat: 12, carb: 50 },
+  },
+
+  // ---------------- 昼食 ----------------
+  {
+    id: "chahan", name: "チャーハン", genre: "中華",
+    mealSlots: ["lunch"], tags: ["egg", "meat"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1.2, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "卵", qty: 2, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "焼豚", qty: 80, unit: "g", pricePerUnit: 1.5, category: "肉魚" },
+      { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 480, protein: 16, fat: 14, carb: 68 },
+  },
+  {
+    id: "yakisoba", name: "焼きそば", genre: "中華",
+    mealSlots: ["lunch"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "焼きそば麺", qty: 2, unit: "玉", pricePerUnit: 40, category: "米・パン" },
+      { name: "豚こま肉", qty: 120, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
+      { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
+      { name: "にんじん", qty: 0.5, unit: "本", pricePerUnit: 30, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 450, protein: 15, fat: 16, carb: 60 },
+  },
+  {
+    id: "udon", name: "肉うどん", genre: "和食",
+    mealSlots: ["lunch"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "うどん", qty: 2, unit: "玉", pricePerUnit: 45, category: "米・パン" },
+      { name: "牛こま肉", qty: 100, unit: "g", pricePerUnit: 1.8, category: "肉魚" },
+      { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+      { name: "めんつゆ", qty: 60, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 420, protein: 16, fat: 10, carb: 64 },
+  },
+  {
+    id: "pasta_tomato", name: "トマトパスタ", genre: "洋食",
+    mealSlots: ["lunch", "dinner"], tags: ["veggie"], baseServings: 2,
+    ingredients: [
+      { name: "パスタ", qty: 200, unit: "g", pricePerUnit: 0.5, category: "米・パン" },
+      { name: "トマト缶", qty: 1, unit: "缶", pricePerUnit: 100, category: "調味料" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "にんにく", qty: 1, unit: "片", pricePerUnit: 20, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 430, protein: 13, fat: 8, carb: 78 },
+  },
+  {
+    id: "pasta_meat", name: "ミートソースパスタ", genre: "洋食",
+    mealSlots: ["lunch", "dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "パスタ", qty: 200, unit: "g", pricePerUnit: 0.5, category: "米・パン" },
+      { name: "合いびき肉", qty: 150, unit: "g", pricePerUnit: 1.4, category: "肉魚" },
+      { name: "トマト缶", qty: 1, unit: "缶", pricePerUnit: 100, category: "調味料" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 540, protein: 22, fat: 18, carb: 72 },
+  },
+  {
+    id: "oyakodon", name: "親子丼", genre: "和食",
+    mealSlots: ["lunch", "dinner"], tags: ["meat", "egg"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1.2, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "鶏もも肉", qty: 200, unit: "g", pricePerUnit: 1.1, category: "肉魚" },
+      { name: "卵", qty: 3, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "めんつゆ", qty: 60, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 560, protein: 30, fat: 16, carb: 70 },
+  },
+  {
+    id: "gyudon", name: "牛丼", genre: "和食",
+    mealSlots: ["lunch", "dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1.2, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "牛こま肉", qty: 200, unit: "g", pricePerUnit: 1.8, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 590, protein: 24, fat: 18, carb: 74 },
+  },
+  {
+    id: "curry_rice", name: "カレーライス", genre: "洋食",
+    mealSlots: ["lunch", "dinner"], tags: ["meat", "veggie"], baseServings: 4,
+    ingredients: [
+      { name: "米", qty: 2.5, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "豚こま肉", qty: 250, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
+      { name: "じゃがいも", qty: 3, unit: "個", pricePerUnit: 30, category: "野菜" },
+      { name: "にんじん", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
+      { name: "玉ねぎ", qty: 2, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "カレールー", qty: 0.5, unit: "箱", pricePerUnit: 200, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 620, protein: 18, fat: 18, carb: 92 },
+  },
+  {
+    id: "sandwich", name: "サンドイッチ", genre: "洋食",
+    mealSlots: ["lunch"], tags: ["egg", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "食パン", qty: 6, unit: "枚", pricePerUnit: 20, category: "米・パン" },
+      { name: "卵", qty: 3, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "ハム", qty: 4, unit: "枚", pricePerUnit: 30, category: "肉魚" },
+      { name: "レタス", qty: 0.3, unit: "玉", pricePerUnit: 150, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 420, protein: 18, fat: 16, carb: 50 },
+  },
+  {
+    id: "ramen", name: "野菜ラーメン", genre: "中華",
+    mealSlots: ["lunch"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "中華麺", qty: 2, unit: "玉", pricePerUnit: 50, category: "米・パン" },
+      { name: "豚こま肉", qty: 80, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
+      { name: "もやし", qty: 1, unit: "袋", pricePerUnit: 30, category: "野菜" },
+      { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 470, protein: 18, fat: 14, carb: 66 },
+  },
+
+  // ---------------- 夕食（主菜） ----------------
+  {
+    id: "nikujaga", name: "肉じゃが", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "じゃがいも", qty: 3, unit: "個", pricePerUnit: 30, category: "野菜" },
+      { name: "牛こま肉", qty: 150, unit: "g", pricePerUnit: 1.8, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "にんじん", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
+      { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 380, protein: 18, fat: 12, carb: 42 },
+  },
+  {
+    id: "shogayaki", name: "豚の生姜焼き", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "豚ロース肉", qty: 250, unit: "g", pricePerUnit: 1.6, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "しょうが", qty: 1, unit: "片", pricePerUnit: 30, category: "野菜" },
+      { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 450, protein: 26, fat: 24, carb: 18 },
+  },
+  {
+    id: "hamburg", name: "ハンバーグ", genre: "洋食",
+    mealSlots: ["dinner"], tags: ["meat", "egg"], baseServings: 2,
+    ingredients: [
+      { name: "合いびき肉", qty: 250, unit: "g", pricePerUnit: 1.4, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "卵", qty: 1, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "パン粉", qty: 30, unit: "g", pricePerUnit: 0.5, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 480, protein: 25, fat: 30, carb: 20 },
+  },
+  {
+    id: "karaage", name: "鶏の唐揚げ", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "鶏もも肉", qty: 300, unit: "g", pricePerUnit: 1.1, category: "肉魚" },
+      { name: "片栗粉", qty: 40, unit: "g", pricePerUnit: 0.4, category: "調味料" },
+      { name: "しょうゆ", qty: 30, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+      { name: "揚げ油", qty: 100, unit: "ml", pricePerUnit: 0.3, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 520, protein: 28, fat: 34, carb: 16 },
+  },
+  {
+    id: "saba_shioyaki", name: "さばの塩焼き", genre: "和食",
+    mealSlots: ["dinner"], tags: ["fish"], baseServings: 2,
+    ingredients: [
+      { name: "さば", qty: 2, unit: "切れ", pricePerUnit: 110, category: "肉魚" },
+      { name: "大根", qty: 0.3, unit: "本", pricePerUnit: 120, category: "野菜" },
+      { name: "塩", qty: 5, unit: "g", pricePerUnit: 0.1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 360, protein: 24, fat: 24, carb: 6 },
+  },
+  {
+    id: "teriyaki_chicken", name: "鶏の照り焼き", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "鶏もも肉", qty: 300, unit: "g", pricePerUnit: 1.1, category: "肉魚" },
+      { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+      { name: "みりん", qty: 40, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
+      { name: "ピーマン", qty: 3, unit: "個", pricePerUnit: 25, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 470, protein: 27, fat: 26, carb: 22 },
+  },
+  {
+    id: "mabo_tofu", name: "麻婆豆腐", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat"], baseServings: 2,
+    ingredients: [
+      { name: "豆腐", qty: 1, unit: "丁", pricePerUnit: 80, category: "野菜" },
+      { name: "豚ひき肉", qty: 120, unit: "g", pricePerUnit: 1.3, category: "肉魚" },
+      { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+      { name: "豆板醤", qty: 15, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 380, protein: 22, fat: 24, carb: 14 },
+  },
+  {
+    id: "gyoza", name: "餃子", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "餃子の皮", qty: 24, unit: "枚", pricePerUnit: 4, category: "米・パン" },
+      { name: "豚ひき肉", qty: 150, unit: "g", pricePerUnit: 1.3, category: "肉魚" },
+      { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
+      { name: "にら", qty: 0.5, unit: "束", pricePerUnit: 80, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 440, protein: 19, fat: 22, carb: 42 },
+  },
+  {
+    id: "cream_stew", name: "クリームシチュー", genre: "洋食",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 4,
+    ingredients: [
+      { name: "鶏もも肉", qty: 250, unit: "g", pricePerUnit: 1.1, category: "肉魚" },
+      { name: "じゃがいも", qty: 3, unit: "個", pricePerUnit: 30, category: "野菜" },
+      { name: "にんじん", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
+      { name: "玉ねぎ", qty: 2, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "シチュールー", qty: 0.5, unit: "箱", pricePerUnit: 200, category: "調味料" },
+      { name: "牛乳", qty: 200, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 420, protein: 18, fat: 18, carb: 44 },
+  },
+  {
+    id: "salmon_meuniere", name: "鮭のムニエル", genre: "洋食",
+    mealSlots: ["dinner"], tags: ["fish"], baseServings: 2,
+    ingredients: [
+      { name: "鮭切り身", qty: 2, unit: "切れ", pricePerUnit: 120, category: "肉魚" },
+      { name: "小麦粉", qty: 30, unit: "g", pricePerUnit: 0.3, category: "調味料" },
+      { name: "バター", qty: 20, unit: "g", pricePerUnit: 2, category: "調味料" },
+      { name: "ブロッコリー", qty: 0.5, unit: "株", pricePerUnit: 160, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 400, protein: 26, fat: 22, carb: 14 },
+  },
+  {
+    id: "chinjao", name: "青椒肉絲", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "牛こま肉", qty: 200, unit: "g", pricePerUnit: 1.8, category: "肉魚" },
+      { name: "ピーマン", qty: 4, unit: "個", pricePerUnit: 25, category: "野菜" },
+      { name: "たけのこ水煮", qty: 100, unit: "g", pricePerUnit: 1, category: "野菜" },
+      { name: "オイスターソース", qty: 30, unit: "ml", pricePerUnit: 0.8, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 430, protein: 24, fat: 26, carb: 16 },
+  },
+  {
+    id: "hoikoro", name: "回鍋肉", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "豚バラ肉", qty: 200, unit: "g", pricePerUnit: 1.5, category: "肉魚" },
+      { name: "キャベツ", qty: 0.3, unit: "玉", pricePerUnit: 150, category: "野菜" },
+      { name: "ピーマン", qty: 2, unit: "個", pricePerUnit: 25, category: "野菜" },
+      { name: "甜麺醤", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 460, protein: 20, fat: 32, carb: 18 },
+  },
+  {
+    id: "buri_daikon", name: "ぶり大根", genre: "和食",
+    mealSlots: ["dinner"], tags: ["fish"], baseServings: 2,
+    ingredients: [
+      { name: "ぶり", qty: 2, unit: "切れ", pricePerUnit: 130, category: "肉魚" },
+      { name: "大根", qty: 0.5, unit: "本", pricePerUnit: 120, category: "野菜" },
+      { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+      { name: "みりん", qty: 40, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 410, protein: 25, fat: 22, carb: 20 },
+  },
+  {
+    id: "tonkatsu", name: "とんかつ", genre: "洋食",
+    mealSlots: ["dinner"], tags: ["meat", "egg"], baseServings: 2,
+    ingredients: [
+      { name: "豚ロース肉", qty: 250, unit: "g", pricePerUnit: 1.6, category: "肉魚" },
+      { name: "卵", qty: 1, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "パン粉", qty: 50, unit: "g", pricePerUnit: 0.5, category: "調味料" },
+      { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 560, protein: 28, fat: 36, carb: 28 },
+  },
+  {
+    id: "yasai_itame", name: "野菜炒め", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "豚こま肉", qty: 150, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
+      { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
+      { name: "にんじん", qty: 0.5, unit: "本", pricePerUnit: 30, category: "野菜" },
+      { name: "もやし", qty: 1, unit: "袋", pricePerUnit: 30, category: "野菜" },
+    ],
+    nutritionPerServing: { kcal: 320, protein: 16, fat: 18, carb: 22 },
+  },
+  {
+    id: "tonjiru_teishoku", name: "豚汁・焼き魚定食", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat", "fish"], baseServings: 2,
+    ingredients: [
+      { name: "豚こま肉", qty: 100, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
+      { name: "あじ開き", qty: 2, unit: "枚", pricePerUnit: 100, category: "肉魚" },
+      { name: "大根", qty: 0.3, unit: "本", pricePerUnit: 120, category: "野菜" },
+      { name: "ごぼう", qty: 0.5, unit: "本", pricePerUnit: 80, category: "野菜" },
+      { name: "味噌", qty: 40, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 420, protein: 26, fat: 20, carb: 24 },
+  },
+  {
+    id: "omurice", name: "オムライス", genre: "洋食",
+    mealSlots: ["dinner", "lunch"], tags: ["egg", "meat"], baseServings: 2,
+    ingredients: [
+      { name: "米", qty: 1.2, unit: "合", pricePerUnit: 60, category: "米・パン" },
+      { name: "卵", qty: 4, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "鶏もも肉", qty: 100, unit: "g", pricePerUnit: 1.1, category: "肉魚" },
+      { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+      { name: "ケチャップ", qty: 50, unit: "g", pricePerUnit: 0.5, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 560, protein: 24, fat: 22, carb: 66 },
+  },
+  {
+    id: "mapo_nasu", name: "麻婆なす", genre: "中華",
+    mealSlots: ["dinner"], tags: ["meat", "veggie"], baseServings: 2,
+    ingredients: [
+      { name: "なす", qty: 3, unit: "本", pricePerUnit: 50, category: "野菜" },
+      { name: "豚ひき肉", qty: 120, unit: "g", pricePerUnit: 1.3, category: "肉魚" },
+      { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+      { name: "豆板醤", qty: 15, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 360, protein: 16, fat: 24, carb: 18 },
+  },
+  {
+    id: "chicken_nanban", name: "チキン南蛮", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat", "egg"], baseServings: 2,
+    ingredients: [
+      { name: "鶏むね肉", qty: 300, unit: "g", pricePerUnit: 0.8, category: "肉魚" },
+      { name: "卵", qty: 2, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "酢", qty: 40, unit: "ml", pricePerUnit: 0.3, category: "調味料" },
+      { name: "マヨネーズ", qty: 50, unit: "g", pricePerUnit: 0.6, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 540, protein: 32, fat: 32, carb: 24 },
+  },
+  {
+    id: "sukiyaki", name: "すき焼き", genre: "和食",
+    mealSlots: ["dinner"], tags: ["meat", "egg"], baseServings: 4,
+    ingredients: [
+      { name: "牛肉(すき焼き用)", qty: 400, unit: "g", pricePerUnit: 2.5, category: "肉魚" },
+      { name: "白菜", qty: 0.25, unit: "玉", pricePerUnit: 200, category: "野菜" },
+      { name: "焼き豆腐", qty: 1, unit: "丁", pricePerUnit: 90, category: "野菜" },
+      { name: "長ねぎ", qty: 2, unit: "本", pricePerUnit: 60, category: "野菜" },
+      { name: "卵", qty: 4, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "割り下", qty: 200, unit: "ml", pricePerUnit: 0.6, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 580, protein: 32, fat: 38, carb: 22 },
+  },
+  {
+    id: "oden", name: "おでん", genre: "和食",
+    mealSlots: ["dinner"], tags: ["fish", "egg"], baseServings: 4,
+    ingredients: [
+      { name: "おでん種セット", qty: 1, unit: "袋", pricePerUnit: 400, category: "肉魚" },
+      { name: "大根", qty: 0.5, unit: "本", pricePerUnit: 120, category: "野菜" },
+      { name: "卵", qty: 4, unit: "個", pricePerUnit: 25, category: "肉魚" },
+      { name: "こんにゃく", qty: 1, unit: "枚", pricePerUnit: 80, category: "野菜" },
+      { name: "だしの素", qty: 20, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    nutritionPerServing: { kcal: 320, protein: 20, fat: 14, carb: 24 },
+  },
+];

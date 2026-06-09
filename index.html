@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>こんだてプランナー</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-orange-50 text-slate-800">
+    <div class="mx-auto max-w-md min-h-screen pb-20 flex flex-col">
+      <header class="px-4 py-3 bg-orange-400 text-white shadow">
+        <h1 class="text-lg font-bold">こんだてプランナー</h1>
+        <p class="text-xs opacity-90">人数と予算で1週間の献立と買い物リストを自動作成</p>
+      </header>
+
+      <main id="screens" class="flex-1">
+        <!-- 設定画面 -->
+        <section id="screen-settings" class="screen p-4 space-y-5">
+          <div>
+            <h2 class="font-bold text-base mb-1">家族の人数</h2>
+            <div class="flex gap-4">
+              <label class="flex-1">
+                <span class="text-sm text-slate-600">大人</span>
+                <input id="adults" type="number" min="0" max="12" value="2"
+                  class="num-input" />
+              </label>
+              <label class="flex-1">
+                <span class="text-sm text-slate-600">子ども</span>
+                <input id="children" type="number" min="0" max="12" value="1"
+                  class="num-input" />
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-bold text-base mb-1">1週間の予算</h2>
+            <label class="flex items-center gap-2">
+              <span class="text-slate-600">¥</span>
+              <input id="budget" type="number" min="1000" step="500" value="10000"
+                class="num-input flex-1" />
+            </label>
+            <p class="text-xs text-slate-500 mt-1">食材費のおおよその上限です。</p>
+          </div>
+
+          <div>
+            <h2 class="font-bold text-base mb-1">苦手な食材（任意）</h2>
+            <div class="flex flex-wrap gap-2" id="avoid-options">
+              <label class="chip"><input type="checkbox" value="meat" />お肉</label>
+              <label class="chip"><input type="checkbox" value="fish" />お魚</label>
+              <label class="chip"><input type="checkbox" value="egg" />卵</label>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-bold text-base mb-1">好きなジャンル（任意・夕食に反映）</h2>
+            <select id="genre" class="num-input">
+              <option value="">こだわらない</option>
+              <option value="和食">和食</option>
+              <option value="洋食">洋食</option>
+              <option value="中華">中華</option>
+            </select>
+          </div>
+
+          <button id="generate-btn" class="primary-btn w-full">
+            この条件で1週間の献立を作る
+          </button>
+        </section>
+
+        <!-- 献立画面 -->
+        <section id="screen-plan" class="screen hidden p-4">
+          <div id="budget-bar-wrap" class="mb-4 sticky top-0 bg-orange-50 pt-1 pb-2 z-10">
+            <div class="flex justify-between text-sm font-semibold">
+              <span id="budget-summary">週合計 ¥0 / 予算 ¥0</span>
+              <button id="regenerate-btn" class="text-orange-600 underline text-sm">作り直す</button>
+            </div>
+            <div class="h-2 bg-orange-100 rounded mt-1 overflow-hidden">
+              <div id="budget-bar" class="h-full bg-orange-400" style="width:0%"></div>
+            </div>
+            <p id="budget-warning" class="text-xs text-red-600 mt-1 hidden"></p>
+          </div>
+          <div id="days-list" class="space-y-4"></div>
+        </section>
+
+        <!-- 買い物リスト画面 -->
+        <section id="screen-shopping" class="screen hidden p-4">
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="font-bold text-base">買い物リスト</h2>
+            <span id="shopping-total" class="text-sm font-semibold">合計 ¥0</span>
+          </div>
+          <div id="shopping-list" class="space-y-4"></div>
+          <p id="shopping-empty" class="text-sm text-slate-500">
+            まず「設定」で献立を作ってください。
+          </p>
+        </section>
+      </main>
+
+      <!-- 下部タブ -->
+      <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t flex">
+        <button class="tab-btn flex-1 py-3 text-sm" data-screen="settings">設定</button>
+        <button class="tab-btn flex-1 py-3 text-sm" data-screen="plan">献立</button>
+        <button class="tab-btn flex-1 py-3 text-sm" data-screen="shopping">買い物</button>
+      </nav>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

@@ -3,6 +3,7 @@
 const SETTINGS_KEY = "mealPlanner.settings";
 const PLAN_KEY = "mealPlanner.plan";
 const CHECKED_KEY = "mealPlanner.checked";
+const FRIDGE_KEY = "mealPlanner.fridge";
 
 export const DEFAULT_SETTINGS = {
   adults: 2,
@@ -51,4 +52,12 @@ export function loadChecked() {
 
 export function saveChecked(checked) {
   write(CHECKED_KEY, checked);
+}
+
+export function loadFridge() {
+  return read(FRIDGE_KEY, []);
+}
+
+export function saveFridge(fridge) {
+  write(FRIDGE_KEY, fridge);
 }

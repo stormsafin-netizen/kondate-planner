@@ -7,8 +7,9 @@ function roundQty(n) {
   return Math.round(n * 10) / 10;
 }
 
-export function buildShoppingList(plan, settings) {
+export function buildShoppingList(plan, settings, fridge = []) {
   const servings = servingsNeeded(settings);
+  const fridgeSet = new Set(fridge);
   const map = new Map(); // key: name|unit -> item
 
   for (const day of plan.days) {
@@ -17,6 +18,7 @@ export function buildShoppingList(plan, settings) {
       if (!recipe) continue;
       const scale = servings / recipe.baseServings;
       for (const ing of recipe.ingredients) {
+        if (fridgeSet.has(ing.name)) continue;
         const key = `${ing.name}|${ing.unit}`;
         const addQty = ing.qty * scale;
         const addCost = ing.pricePerUnit * ing.qty * scale;

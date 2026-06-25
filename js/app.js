@@ -6,6 +6,8 @@ import {
   savePlan,
   loadChecked,
   saveChecked,
+  loadFridge,
+  saveFridge,
 } from "./storage.js";
 import { generatePlan, swapMeal } from "./menuGenerator.js";
 import { buildShoppingList } from "./shoppingList.js";
@@ -17,6 +19,7 @@ const yen = (n) => "¥" + n.toLocaleString("ja-JP");
 let settings = loadSettings();
 let plan = loadPlan();
 let checked = loadChecked();
+let fridge = loadFridge();
 
 const $ = (id) => document.getElementById(id);
 
@@ -59,6 +62,12 @@ function readSettingsFromForm() {
   };
 }
 
+function readFridgeFromForm() {
+  return [
+    ...document.querySelectorAll("#fridge-veggie input:checked, #fridge-meat input:checked, #fridge-dairy input:checked"),
+  ].map((c) => c.value);
+}
+
 function fillForm(s) {
   $("adults").value = s.adults;
   $("children").value = s.children;
@@ -66,6 +75,14 @@ function fillForm(s) {
   $("genre").value = s.genrePref || "";
   document.querySelectorAll("#avoid-options input").forEach((c) => {
     c.checked = s.avoid.includes(c.value);
+  });
+}
+
+function fillFridge(items) {
+  document.querySelectorAll(
+    "#fridge-veggie input, #fridge-meat input, #fridge-dairy input"
+  ).forEach((c) => {
+    c.checked = items.includes(c.value);
   });
 }
 
@@ -147,7 +164,7 @@ function renderShopping() {
     return;
   }
   empty.classList.add("hidden");
-  const { groups, totalCost } = buildShoppingList(plan, settings);
+  const { groups, totalCost } = buildShoppingList(plan, settings, fridge);
   $("shopping-total").textContent = "合計 " + yen(totalCost);
 
   wrap.replaceChildren();
@@ -203,6 +220,8 @@ function renderShopping() {
 function generate() {
   settings = readSettingsFromForm();
   saveSettings(settings);
+  fridge = readFridgeFromForm();
+  saveFridge(fridge);
   plan = generatePlan(settings);
   savePlan(plan);
   checked = {};
@@ -217,6 +236,7 @@ $("regenerate-btn").addEventListener("click", generate);
 
 // ---------- 初期表示 ----------
 fillForm(settings);
+fillFridge(fridge);
 if (plan) {
   renderPlan();
   renderShopping();

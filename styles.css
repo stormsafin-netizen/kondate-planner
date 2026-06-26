@@ -50,3 +50,37 @@
   border-top: 2px solid #ea580c;
   margin-top: -1px;
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal-backdrop.hidden {
+  display: none;
+}
+.modal-sheet {
+  background: #fff;
+  border-radius: 1rem 1rem 0 0;
+  padding: 1.25rem 1rem 2.5rem;
+  width: 100%;
+  max-width: 448px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.22s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.meal-name-btn {
+  color: #c2410c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}

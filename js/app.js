@@ -9,7 +9,7 @@ import {
   loadFridge,
   saveFridge,
 } from "./storage.js";
-import { generatePlan, swapMeal } from "./menuGenerator.js";
+import { generatePlan, swapMeal, recipeById, servingsNeeded } from "./menuGenerator.js";
 import { buildShoppingList } from "./shoppingList.js";
 
 const SLOT_LABELS = { breakfast: "朝", lunch: "昼", dinner: "夜" };
@@ -120,13 +120,15 @@ function renderPlan() {
 
     SLOTS.forEach((slot) => {
       const meal = day[slot];
+      const nameBtn = el("span", { class: "meal-name-btn truncate", text: meal.name });
+      nameBtn.addEventListener("click", () => openRecipeModal(meal.recipeId));
       const left = el("div", { class: "flex items-center gap-2 min-w-0" }, [
         el("span", {
           class:
             "shrink-0 w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs grid place-items-center",
           text: SLOT_LABELS[slot],
         }),
-        el("span", { class: "truncate", text: meal.name }),
+        nameBtn,
       ]);
       const swapBtn = el("button", {
         class: "swap-btn text-xs text-orange-600 underline",
@@ -215,6 +217,58 @@ function renderShopping() {
     wrap.appendChild(section);
   });
 }
+
+// ---------- レシピ詳細モーダル ----------
+function openRecipeModal(recipeId) {
+  const recipe = recipeById(recipeId);
+  if (!recipe) return;
+  const servings = plan ? servingsNeeded(settings) : 1;
+  const scale = servings / recipe.baseServings;
+
+  $("modal-title").textContent = recipe.name;
+
+  const body = $("modal-body");
+  body.replaceChildren();
+
+  const ingHeader = el("h3", { class: "font-bold text-sm text-orange-700 mb-2" }, [
+    document.createTextNode("材料"),
+    el("span", { class: "text-xs font-normal text-slate-400 ml-1", text: `（${servings}人前）` }),
+  ]);
+  body.appendChild(ingHeader);
+
+  const ingList = el("ul", { class: "mb-4" });
+  for (const ing of recipe.ingredients) {
+    const scaledQty = Math.round(ing.qty * scale * 10) / 10;
+    ingList.appendChild(
+      el("li", { class: "flex justify-between text-sm py-1.5 border-b border-slate-100" }, [
+        el("span", { text: ing.name }),
+        el("span", { class: "text-slate-500", text: `${scaledQty}${ing.unit}` }),
+      ])
+    );
+  }
+  body.appendChild(ingList);
+
+  body.appendChild(el("h3", { class: "font-bold text-sm text-orange-700 mb-2", text: "作り方" }));
+  const stepList = el("ol", { class: "space-y-2 list-decimal list-outside pl-4" });
+  for (const step of (recipe.steps || [])) {
+    stepList.appendChild(el("li", { class: "text-sm text-slate-700 leading-relaxed", text: step }));
+  }
+  body.appendChild(stepList);
+
+  $("recipe-modal").classList.remove("hidden");
+}
+
+function closeRecipeModal() {
+  $("recipe-modal").classList.add("hidden");
+}
+
+$("modal-close").addEventListener("click", closeRecipeModal);
+$("recipe-modal").addEventListener("click", (e) => {
+  if (e.target === $("recipe-modal")) closeRecipeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeRecipeModal();
+});
 
 // ---------- 生成 ----------
 function generate() {

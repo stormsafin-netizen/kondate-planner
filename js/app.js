@@ -249,11 +249,25 @@ function openRecipeModal(recipeId) {
   body.appendChild(ingList);
 
   body.appendChild(el("h3", { class: "font-bold text-sm text-orange-700 mb-2", text: "作り方" }));
-  const stepList = el("ol", { class: "space-y-2 list-decimal list-outside pl-4" });
+  const stepList = el("ol", { class: "space-y-2 list-decimal list-outside pl-4 mb-4" });
   for (const step of (recipe.steps || [])) {
     stepList.appendChild(el("li", { class: "text-sm text-slate-700 leading-relaxed", text: step }));
   }
   body.appendChild(stepList);
+
+  if (recipe.tips && recipe.tips.length > 0) {
+    body.appendChild(el("h3", { class: "font-bold text-sm text-orange-700 mb-2", text: "コツ" }));
+    const tipList = el("ul", { class: "space-y-1.5" });
+    for (const tip of recipe.tips) {
+      tipList.appendChild(
+        el("li", { class: "flex gap-2 text-sm text-slate-700 leading-relaxed" }, [
+          el("span", { class: "shrink-0 text-orange-400", text: "💡" }),
+          el("span", { text: tip }),
+        ])
+      );
+    }
+    body.appendChild(tipList);
+  }
 
   $("recipe-modal").classList.remove("hidden");
 }

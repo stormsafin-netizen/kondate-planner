@@ -14,6 +14,11 @@ export const RECIPES = [
       { name: "わかめ", qty: 5, unit: "g", pricePerUnit: 2, category: "調味料" },
       { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
     ],
+    steps: [
+      "米を研いで炊く。",
+      "わかめと豆腐を鍋に入れ、だし汁で温めて味噌を溶かし味噌汁を作る。",
+      "卵を溶いて砂糖・醤油少々を加え、卵焼き器で巻きながら焼く。",
+    ],
     nutritionPerServing: { kcal: 380, protein: 14, fat: 10, carb: 55 },
   },
   {
@@ -26,6 +31,11 @@ export const RECIPES = [
       { name: "トマト", qty: 1, unit: "個", pricePerUnit: 80, category: "野菜" },
       { name: "バター", qty: 20, unit: "g", pricePerUnit: 2, category: "調味料" },
     ],
+    steps: [
+      "食パンをトースターでこんがり焼き、バターを塗る。",
+      "フライパンにバターを溶かし、卵を割り入れて目玉焼きにする。",
+      "レタスをちぎり、トマトを切ってサラダに盛り付ける。",
+    ],
     nutritionPerServing: { kcal: 350, protein: 12, fat: 16, carb: 40 },
   },
   {
@@ -36,6 +46,11 @@ export const RECIPES = [
       { name: "納豆", qty: 2, unit: "パック", pricePerUnit: 35, category: "野菜" },
       { name: "豆腐", qty: 0.5, unit: "丁", pricePerUnit: 60, category: "野菜" },
       { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    steps: [
+      "米を研いで炊く。",
+      "納豆を付属のたれ・からしでよく混ぜる。",
+      "豆腐を切り、だし汁で温めて味噌を溶かして味噌汁を作る。ご飯に納豆をかける。",
     ],
     nutritionPerServing: { kcal: 360, protein: 16, fat: 8, carb: 56 },
   },
@@ -48,6 +63,11 @@ export const RECIPES = [
       { name: "のり", qty: 2, unit: "枚", pricePerUnit: 15, category: "調味料" },
       { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
     ],
+    steps: [
+      "米を炊き、塩を少量混ぜる。",
+      "鮭フレークを中に入れ、三角形に握ってのりを巻く。",
+      "だし汁を温めて味噌を溶かし、味噌汁を作る。",
+    ],
     nutritionPerServing: { kcal: 340, protein: 10, fat: 5, carb: 62 },
   },
   {
@@ -58,6 +78,11 @@ export const RECIPES = [
       { name: "卵", qty: 1, unit: "個", pricePerUnit: 25, category: "肉魚" },
       { name: "牛乳", qty: 100, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
       { name: "バナナ", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
+    ],
+    steps: [
+      "ホットケーキミックスに卵と牛乳を加えてよく混ぜる。",
+      "フライパンに生地を流し入れ、表面に気泡が出たら裏返して両面焼く。",
+      "バナナを切って添える。",
     ],
     nutritionPerServing: { kcal: 400, protein: 9, fat: 10, carb: 68 },
   },
@@ -70,6 +95,10 @@ export const RECIPES = [
       { name: "牛乳", qty: 150, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
       { name: "砂糖", qty: 20, unit: "g", pricePerUnit: 0.3, category: "調味料" },
     ],
+    steps: [
+      "卵・牛乳・砂糖を混ぜて卵液を作り、食パンを浸して10分ほど置く。",
+      "フライパンにバターを熱し、食パンを両面きつね色になるまで焼く。",
+    ],
     nutritionPerServing: { kcal: 380, protein: 13, fat: 12, carb: 52 },
   },
   {
@@ -79,6 +108,10 @@ export const RECIPES = [
       { name: "シリアル", qty: 120, unit: "g", pricePerUnit: 1.2, category: "米・パン" },
       { name: "牛乳", qty: 300, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
       { name: "ヨーグルト", qty: 200, unit: "g", pricePerUnit: 0.8, category: "調味料" },
+    ],
+    steps: [
+      "シリアルをボウルに入れ、牛乳をかける。",
+      "ヨーグルトを添えてできあがり。",
     ],
     nutritionPerServing: { kcal: 320, protein: 11, fat: 7, carb: 54 },
   },
@@ -90,6 +123,11 @@ export const RECIPES = [
       { name: "鮭切り身", qty: 2, unit: "切れ", pricePerUnit: 120, category: "肉魚" },
       { name: "豆腐", qty: 0.5, unit: "丁", pricePerUnit: 60, category: "野菜" },
       { name: "味噌", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    steps: [
+      "米を炊く。",
+      "鮭切り身に塩をふり、グリルまたはフライパンで両面焼く。",
+      "豆腐を切り、だし汁で温めて味噌を溶かして味噌汁を作る。",
     ],
     nutritionPerServing: { kcal: 420, protein: 24, fat: 12, carb: 50 },
   },
@@ -104,6 +142,11 @@ export const RECIPES = [
       { name: "焼豚", qty: 80, unit: "g", pricePerUnit: 1.5, category: "肉魚" },
       { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
     ],
+    steps: [
+      "フライパンに油を熱し、焼豚と長ねぎを炒める。",
+      "ご飯を加えてほぐしながら炒め、塩・こしょうで味をつける。",
+      "端に寄せた場所に溶き卵を流し入れ、半熟のうちにご飯と混ぜ合わせる。",
+    ],
     nutritionPerServing: { kcal: 480, protein: 16, fat: 14, carb: 68 },
   },
   {
@@ -114,6 +157,11 @@ export const RECIPES = [
       { name: "豚こま肉", qty: 120, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
       { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
       { name: "にんじん", qty: 0.5, unit: "本", pricePerUnit: 30, category: "野菜" },
+    ],
+    steps: [
+      "豚こま肉・キャベツ・にんじんを食べやすい大きさに切る。",
+      "フライパンで豚肉を炒め、野菜を加えてさらに炒める。",
+      "麺を加えて水少量を加えながらほぐし、ソースで味付けして仕上げる。",
     ],
     nutritionPerServing: { kcal: 450, protein: 15, fat: 16, carb: 60 },
   },
@@ -126,6 +174,11 @@ export const RECIPES = [
       { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
       { name: "めんつゆ", qty: 60, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
     ],
+    steps: [
+      "鍋にめんつゆと水を合わせて温める。",
+      "牛こま肉を加えて火が通るまで煮る。",
+      "うどんをゆでて器に盛り、つゆと肉・長ねぎを乗せる。",
+    ],
     nutritionPerServing: { kcal: 420, protein: 16, fat: 10, carb: 64 },
   },
   {
@@ -137,6 +190,11 @@ export const RECIPES = [
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "にんにく", qty: 1, unit: "片", pricePerUnit: 20, category: "野菜" },
     ],
+    steps: [
+      "玉ねぎ・にんにくをみじん切りにし、オリーブ油で炒める。",
+      "トマト缶を加えて10〜15分煮詰め、塩・こしょうで味を調える。",
+      "パスタをゆでてソースと和える。",
+    ],
     nutritionPerServing: { kcal: 430, protein: 13, fat: 8, carb: 78 },
   },
   {
@@ -147,6 +205,11 @@ export const RECIPES = [
       { name: "合いびき肉", qty: 150, unit: "g", pricePerUnit: 1.4, category: "肉魚" },
       { name: "トマト缶", qty: 1, unit: "缶", pricePerUnit: 100, category: "調味料" },
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
+    ],
+    steps: [
+      "玉ねぎをみじん切りにしてオリーブ油で炒め、合いびき肉を加えて色が変わるまで炒める。",
+      "トマト缶・塩・こしょうを加え、弱火で20分煮込む。",
+      "パスタをゆでてソースをかける。",
     ],
     nutritionPerServing: { kcal: 540, protein: 22, fat: 18, carb: 72 },
   },
@@ -160,6 +223,11 @@ export const RECIPES = [
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "めんつゆ", qty: 60, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
     ],
+    steps: [
+      "鶏もも肉を一口大に切り、玉ねぎを薄切りにする。",
+      "小鍋にめんつゆと水を合わせ、鶏肉と玉ねぎを入れて煮る。",
+      "火が通ったら溶き卵を回しかけ、半熟で火を止めてご飯の上に乗せる。",
+    ],
     nutritionPerServing: { kcal: 560, protein: 30, fat: 16, carb: 70 },
   },
   {
@@ -170,6 +238,11 @@ export const RECIPES = [
       { name: "牛こま肉", qty: 200, unit: "g", pricePerUnit: 1.8, category: "肉魚" },
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+    ],
+    steps: [
+      "玉ねぎを薄切りにし、だし・醤油・みりん・砂糖で煮る。",
+      "牛こま肉を加えて火が通るまで煮る。",
+      "ご飯を器に盛り、牛肉と玉ねぎを乗せる。",
     ],
     nutritionPerServing: { kcal: 590, protein: 24, fat: 18, carb: 74 },
   },
@@ -184,6 +257,11 @@ export const RECIPES = [
       { name: "玉ねぎ", qty: 2, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "カレールー", qty: 0.5, unit: "箱", pricePerUnit: 200, category: "調味料" },
     ],
+    steps: [
+      "玉ねぎ・にんじん・じゃがいもを切り、豚こま肉と一緒に鍋で炒める。",
+      "水を加えて野菜が柔らかくなるまで15分煮る。",
+      "火を止めてカレールーを溶かし、再び弱火で10分煮る。ご飯にかける。",
+    ],
     nutritionPerServing: { kcal: 620, protein: 18, fat: 18, carb: 92 },
   },
   {
@@ -195,6 +273,11 @@ export const RECIPES = [
       { name: "ハム", qty: 4, unit: "枚", pricePerUnit: 30, category: "肉魚" },
       { name: "レタス", qty: 0.3, unit: "玉", pricePerUnit: 150, category: "野菜" },
     ],
+    steps: [
+      "卵をゆでてつぶし、マヨネーズで和えてエッグサラダを作る。",
+      "食パンにエッグサラダ・ハム・レタスを挟む。",
+      "斜めに切って盛り付ける。",
+    ],
     nutritionPerServing: { kcal: 420, protein: 18, fat: 16, carb: 50 },
   },
   {
@@ -205,6 +288,11 @@ export const RECIPES = [
       { name: "豚こま肉", qty: 80, unit: "g", pricePerUnit: 1.2, category: "肉魚" },
       { name: "もやし", qty: 1, unit: "袋", pricePerUnit: 30, category: "野菜" },
       { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
+    ],
+    steps: [
+      "鍋にスープ（鶏がらスープの素・醤油・塩・水）を合わせて温める。",
+      "豚こま肉・もやし・長ねぎを炒めてスープに加える。",
+      "中華麺をゆでて器に盛り、スープと具を乗せる。",
     ],
     nutritionPerServing: { kcal: 470, protein: 18, fat: 14, carb: 66 },
   },
@@ -220,6 +308,11 @@ export const RECIPES = [
       { name: "にんじん", qty: 1, unit: "本", pricePerUnit: 30, category: "野菜" },
       { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
     ],
+    steps: [
+      "じゃがいも・にんじん・玉ねぎを食べやすい大きさに切る。",
+      "鍋に油を熱して牛こま肉を炒め、野菜を加えて炒め合わせる。",
+      "醤油・砂糖・みりん・だし汁を加え、落とし蓋をして中火で15〜20分煮る。",
+    ],
     nutritionPerServing: { kcal: 380, protein: 18, fat: 12, carb: 42 },
   },
   {
@@ -230,6 +323,11 @@ export const RECIPES = [
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "しょうが", qty: 1, unit: "片", pricePerUnit: 30, category: "野菜" },
       { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
+    ],
+    steps: [
+      "しょうがをすりおろし、醤油・みりん・酒と合わせてたれを作る。",
+      "豚ロース肉をたれに10分漬ける。",
+      "フライパンで玉ねぎを炒め、豚肉を加えて焼き、たれを絡めて仕上げる。",
     ],
     nutritionPerServing: { kcal: 450, protein: 26, fat: 24, carb: 18 },
   },
@@ -242,6 +340,11 @@ export const RECIPES = [
       { name: "卵", qty: 1, unit: "個", pricePerUnit: 25, category: "肉魚" },
       { name: "パン粉", qty: 30, unit: "g", pricePerUnit: 0.5, category: "調味料" },
     ],
+    steps: [
+      "玉ねぎをみじん切りにして炒め、冷ます。合いびき肉・卵・パン粉・玉ねぎを混ぜてよくこねる。",
+      "小判形に成形し、中央をくぼませる。",
+      "フライパンで両面焼き色をつけ、蓋をして蒸し焼きにして中まで火を通す。",
+    ],
     nutritionPerServing: { kcal: 480, protein: 25, fat: 30, carb: 20 },
   },
   {
@@ -253,6 +356,11 @@ export const RECIPES = [
       { name: "しょうゆ", qty: 30, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
       { name: "揚げ油", qty: 100, unit: "ml", pricePerUnit: 0.3, category: "調味料" },
     ],
+    steps: [
+      "鶏もも肉を一口大に切り、醤油・生姜・にんにくで10〜15分漬ける。",
+      "片栗粉をまぶして170℃の揚げ油でじっくり揚げる。",
+      "一度取り出して休ませ、180℃で二度揚げしてカラッと仕上げる。",
+    ],
     nutritionPerServing: { kcal: 520, protein: 28, fat: 34, carb: 16 },
   },
   {
@@ -262,6 +370,11 @@ export const RECIPES = [
       { name: "さば", qty: 2, unit: "切れ", pricePerUnit: 110, category: "肉魚" },
       { name: "大根", qty: 0.3, unit: "本", pricePerUnit: 120, category: "野菜" },
       { name: "塩", qty: 5, unit: "g", pricePerUnit: 0.1, category: "調味料" },
+    ],
+    steps: [
+      "さばに塩をまんべんなく振り、10分おいて出てきた水気を拭き取る。",
+      "グリルまたはフライパンで皮目から焼き、両面こんがり焼く。",
+      "大根をすりおろして添える。",
     ],
     nutritionPerServing: { kcal: 360, protein: 24, fat: 24, carb: 6 },
   },
@@ -274,6 +387,11 @@ export const RECIPES = [
       { name: "みりん", qty: 40, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
       { name: "ピーマン", qty: 3, unit: "個", pricePerUnit: 25, category: "野菜" },
     ],
+    steps: [
+      "鶏もも肉に塩・こしょうをふる。",
+      "フライパンで皮目から焼き、火が通ったら醤油・みりんを合わせたたれを加える。",
+      "たれを絡めながら照りよく焼き、ピーマンも一緒に炒め合わせる。",
+    ],
     nutritionPerServing: { kcal: 470, protein: 27, fat: 26, carb: 22 },
   },
   {
@@ -285,6 +403,11 @@ export const RECIPES = [
       { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
       { name: "豆板醤", qty: 15, unit: "g", pricePerUnit: 1, category: "調味料" },
     ],
+    steps: [
+      "豆腐を角切りにする。長ねぎをみじん切りにする。",
+      "フライパンに油を熱し、豚ひき肉と豆板醤を炒める。",
+      "水・醤油・鶏がらスープを加えて豆腐を入れて煮て、水溶き片栗粉でとろみをつける。",
+    ],
     nutritionPerServing: { kcal: 380, protein: 22, fat: 24, carb: 14 },
   },
   {
@@ -295,6 +418,11 @@ export const RECIPES = [
       { name: "豚ひき肉", qty: 150, unit: "g", pricePerUnit: 1.3, category: "肉魚" },
       { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
       { name: "にら", qty: 0.5, unit: "束", pricePerUnit: 80, category: "野菜" },
+    ],
+    steps: [
+      "キャベツを塩もみして水気を絞りみじん切りにする。豚ひき肉・にら・にんにく・生姜と混ぜてタネを作る。",
+      "餃子の皮にタネを乗せ、縁に水をつけてひだを折りながら包む。",
+      "フライパンに油を熱して餃子を並べて焼き色をつけ、水を加えて蓋をし蒸し焼きにする。",
     ],
     nutritionPerServing: { kcal: 440, protein: 19, fat: 22, carb: 42 },
   },
@@ -309,6 +437,11 @@ export const RECIPES = [
       { name: "シチュールー", qty: 0.5, unit: "箱", pricePerUnit: 200, category: "調味料" },
       { name: "牛乳", qty: 200, unit: "ml", pricePerUnit: 0.2, category: "調味料" },
     ],
+    steps: [
+      "鶏もも肉・じゃがいも・にんじん・玉ねぎを食べやすい大きさに切って鍋で炒める。",
+      "水を加えて野菜が柔らかくなるまで15分煮る。",
+      "火を止めてシチュールーを溶かし、牛乳を加えて弱火で10分煮る。",
+    ],
     nutritionPerServing: { kcal: 420, protein: 18, fat: 18, carb: 44 },
   },
   {
@@ -319,6 +452,11 @@ export const RECIPES = [
       { name: "小麦粉", qty: 30, unit: "g", pricePerUnit: 0.3, category: "調味料" },
       { name: "バター", qty: 20, unit: "g", pricePerUnit: 2, category: "調味料" },
       { name: "ブロッコリー", qty: 0.5, unit: "株", pricePerUnit: 160, category: "野菜" },
+    ],
+    steps: [
+      "鮭切り身に塩・こしょうをふり、小麦粉を薄くまぶす。",
+      "フライパンにバターを熱し、鮭を両面きつね色になるまで焼く。",
+      "ブロッコリーを小房に分けてゆで、添える。",
     ],
     nutritionPerServing: { kcal: 400, protein: 26, fat: 22, carb: 14 },
   },
@@ -331,6 +469,11 @@ export const RECIPES = [
       { name: "たけのこ水煮", qty: 100, unit: "g", pricePerUnit: 1, category: "野菜" },
       { name: "オイスターソース", qty: 30, unit: "ml", pricePerUnit: 0.8, category: "調味料" },
     ],
+    steps: [
+      "牛こま肉・ピーマン・たけのこを細切りにする。",
+      "フライパンに油を熱して牛肉を炒め、野菜を加えてさらに炒める。",
+      "オイスターソース・醤油・みりんで味付けし、強火で手早く仕上げる。",
+    ],
     nutritionPerServing: { kcal: 430, protein: 24, fat: 26, carb: 16 },
   },
   {
@@ -341,6 +484,11 @@ export const RECIPES = [
       { name: "キャベツ", qty: 0.3, unit: "玉", pricePerUnit: 150, category: "野菜" },
       { name: "ピーマン", qty: 2, unit: "個", pricePerUnit: 25, category: "野菜" },
       { name: "甜麺醤", qty: 30, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    steps: [
+      "豚バラ肉を一口大に切る。キャベツをざく切り、ピーマンを乱切りにする。",
+      "フライパンで豚バラ肉を炒め、キャベツ・ピーマンを加えてさらに炒める。",
+      "甜麺醤・醤油・みりんで味付けし、強火で手早く仕上げる。",
     ],
     nutritionPerServing: { kcal: 460, protein: 20, fat: 32, carb: 18 },
   },
@@ -353,6 +501,11 @@ export const RECIPES = [
       { name: "しょうゆ", qty: 40, unit: "ml", pricePerUnit: 0.4, category: "調味料" },
       { name: "みりん", qty: 40, unit: "ml", pricePerUnit: 0.5, category: "調味料" },
     ],
+    steps: [
+      "大根を2cm厚に切り、米のとぎ汁で下ゆでする。",
+      "鍋にだし・醤油・みりん・砂糖・酒を合わせてぶりと大根を入れる。",
+      "落とし蓋をして弱火で20〜30分煮る。",
+    ],
     nutritionPerServing: { kcal: 410, protein: 25, fat: 22, carb: 20 },
   },
   {
@@ -364,6 +517,11 @@ export const RECIPES = [
       { name: "パン粉", qty: 50, unit: "g", pricePerUnit: 0.5, category: "調味料" },
       { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
     ],
+    steps: [
+      "豚ロース肉に塩・こしょうをふり、小麦粉→溶き卵→パン粉の順に衣をつける。",
+      "170℃の油でじっくり揚げ、最後に180℃で色よく二度揚げする。",
+      "キャベツを千切りにして添え、ソースをかける。",
+    ],
     nutritionPerServing: { kcal: 560, protein: 28, fat: 36, carb: 28 },
   },
   {
@@ -374,6 +532,11 @@ export const RECIPES = [
       { name: "キャベツ", qty: 0.25, unit: "玉", pricePerUnit: 150, category: "野菜" },
       { name: "にんじん", qty: 0.5, unit: "本", pricePerUnit: 30, category: "野菜" },
       { name: "もやし", qty: 1, unit: "袋", pricePerUnit: 30, category: "野菜" },
+    ],
+    steps: [
+      "豚こま肉・キャベツ・にんじん・もやしを食べやすい大きさに切る。",
+      "フライパンに油を熱し、豚肉から炒め始め、野菜を加えて強火で炒める。",
+      "塩・こしょう・醤油・鶏がらスープの素で味付けする。",
     ],
     nutritionPerServing: { kcal: 320, protein: 16, fat: 18, carb: 22 },
   },
@@ -387,6 +550,11 @@ export const RECIPES = [
       { name: "ごぼう", qty: 0.5, unit: "本", pricePerUnit: 80, category: "野菜" },
       { name: "味噌", qty: 40, unit: "g", pricePerUnit: 1, category: "調味料" },
     ],
+    steps: [
+      "大根・ごぼうを切り、豚こま肉と一緒に鍋で炒める。",
+      "水を加えて野菜が柔らかくなるまで煮て、味噌を溶かして豚汁を作る。",
+      "あじ開きをグリルで両面焼く。",
+    ],
     nutritionPerServing: { kcal: 420, protein: 26, fat: 20, carb: 24 },
   },
   {
@@ -399,6 +567,11 @@ export const RECIPES = [
       { name: "玉ねぎ", qty: 1, unit: "個", pricePerUnit: 40, category: "野菜" },
       { name: "ケチャップ", qty: 50, unit: "g", pricePerUnit: 0.5, category: "調味料" },
     ],
+    steps: [
+      "鶏もも肉・玉ねぎを小さく切り、バターで炒める。ご飯を加えてケチャップで炒め合わせる。",
+      "卵を溶いて薄焼き卵を作り、チキンライスを包む。",
+      "皿に盛り、ケチャップを上からかける。",
+    ],
     nutritionPerServing: { kcal: 560, protein: 24, fat: 22, carb: 66 },
   },
   {
@@ -410,6 +583,11 @@ export const RECIPES = [
       { name: "長ねぎ", qty: 0.5, unit: "本", pricePerUnit: 60, category: "野菜" },
       { name: "豆板醤", qty: 15, unit: "g", pricePerUnit: 1, category: "調味料" },
     ],
+    steps: [
+      "なすを一口大に切り、多めの油で素揚げする。",
+      "フライパンで豚ひき肉・豆板醤を炒め、水・醤油・鶏がらスープを加える。",
+      "なすと長ねぎを加えて煮て、水溶き片栗粉でとろみをつける。",
+    ],
     nutritionPerServing: { kcal: 360, protein: 16, fat: 24, carb: 18 },
   },
   {
@@ -420,6 +598,11 @@ export const RECIPES = [
       { name: "卵", qty: 2, unit: "個", pricePerUnit: 25, category: "肉魚" },
       { name: "酢", qty: 40, unit: "ml", pricePerUnit: 0.3, category: "調味料" },
       { name: "マヨネーズ", qty: 50, unit: "g", pricePerUnit: 0.6, category: "調味料" },
+    ],
+    steps: [
+      "鶏むね肉を一口大に切り、塩・こしょうをふって小麦粉→溶き卵の衣をつけて揚げる。",
+      "酢・醤油・砂糖を合わせた南蛮酢に揚げたてを漬ける。",
+      "ゆで卵とマヨネーズでタルタルソースを作り、かけて完成。",
     ],
     nutritionPerServing: { kcal: 540, protein: 32, fat: 32, carb: 24 },
   },
@@ -434,6 +617,11 @@ export const RECIPES = [
       { name: "卵", qty: 4, unit: "個", pricePerUnit: 25, category: "肉魚" },
       { name: "割り下", qty: 200, unit: "ml", pricePerUnit: 0.6, category: "調味料" },
     ],
+    steps: [
+      "鍋を熱して牛脂を溶かし、牛肉を並べて焼き色をつける。",
+      "割り下を加え、白菜・長ねぎ・焼き豆腐などを加えて煮る。",
+      "溶き卵につけながら食べる。",
+    ],
     nutritionPerServing: { kcal: 580, protein: 32, fat: 38, carb: 22 },
   },
   {
@@ -445,6 +633,11 @@ export const RECIPES = [
       { name: "卵", qty: 4, unit: "個", pricePerUnit: 25, category: "肉魚" },
       { name: "こんにゃく", qty: 1, unit: "枚", pricePerUnit: 80, category: "野菜" },
       { name: "だしの素", qty: 20, unit: "g", pricePerUnit: 1, category: "調味料" },
+    ],
+    steps: [
+      "大根は下ゆでし、こんにゃくは下ゆでして切り込みを入れる。卵はゆでて殻をむく。",
+      "鍋にだし汁・醤油・みりんを合わせて温め、全ての具を入れる。",
+      "弱火で1時間以上煮込んで味をしみこませる。",
     ],
     nutritionPerServing: { kcal: 320, protein: 20, fat: 14, carb: 24 },
   },
